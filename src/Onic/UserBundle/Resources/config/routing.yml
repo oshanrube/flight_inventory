@@ -1,0 +1,3 @@
+onic_user_homepage:
+    path:     /
+    defaults: { _controller: OnicUserBundle:Default:index }
