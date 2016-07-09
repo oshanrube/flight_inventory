@@ -3,9 +3,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+
     <form action="{{ path("fos_user_security_check") }}" id="login-validation" class="col-md-5 col-sm-5 col-xs-11 center-margin" method="post">
         <h3 class="text-center pad25B font-gray font-size-23">
             Login
@@ -13,6 +11,35 @@
 
         <div id="login-form" class="content-box">
             <div class="content-box-wrapper pad20A">
+
+                <ul class="noty-wrapper" id="noty_top">
+                    {% for type, messages in app.session.flashBag.all %}
+                        {% for message in messages %}
+                            <li class="bg-green {{ type }}" style="cursor: pointer;">
+                                <div class="noty_bar">
+                                    <div class="noty_message">
+                                <span class="noty_text">
+                                    <i class="glyph-icon icon-cog mrg5R"></i>{{ message|trans({}, 'FOSUserBundle') }}
+                                </span>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% if error %}
+                        <li class="bg-red" style="cursor: pointer;">
+                            <div class="noty_bar">
+                                <div class="noty_message">
+                                <span class="noty_text">
+                                    <i class="glyph-icon icon-cog mrg5R"></i>{{ error.messageKey|trans(error.messageData, 'security') }}
+                                </span>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
+                </ul>
+
+
                 <div class="form-group">
                     <label for="username">{{ 'security.login.username'|trans }}:</label>
 
