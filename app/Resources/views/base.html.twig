@@ -1,15 +1,73 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        asdasasd
-        asdasd
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="shortcut icon" href="{{ asset('assets/images/icons/favicon.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styles.css') }}">
+
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-widget.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-mouse.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-position.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/transition.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-cookie.js') }}"></script>
+    <script type="text/javascript">$(window).load(function () {
+            setTimeout(function () {
+                $('#loading').fadeOut(400, "linear");
+            }, 300);
+        });</script>
+    <style type="text/css">
+        #loading .svg-icon-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+        }
+
+        html, body {
+            height: 100%;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="loading">
+    <div class="svg-icon-loader">
+        <img src="https://agileui.com/demo/delight/assets/images/svg-loaders/bars.svg" width="40" alt="">
+    </div>
+</div>
+<div class="center-vertical bg-black">
+    {% block body %}{% endblock %}
+</div>
+{% block javascripts %}{% endblock %}
+<script type="text/javascript" src="{{ asset('assets/widgets/dropdown/dropdown.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/tooltip/tooltip.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/popover/popover.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/progressbar/progressbar.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/button/button.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/collapse/collapse.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/superclick/superclick.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/input-switch/inputswitch-alt.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/slimscroll/slimscroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/slidebars/slidebars.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/slidebars/slidebars-demo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/charts/piegage/piegage.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/charts/piegage/piegage-demo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/screenfull/screenfull.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/content-box/contentbox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/material/material.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/material/ripples.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/overlay/overlay.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js-init/widgets-init.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/themes/admin/layout.js') }}"></script>
+</body>
 </html>

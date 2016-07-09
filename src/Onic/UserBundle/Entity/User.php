@@ -23,4 +23,3 @@ class User
         return $this->id;
     }
 }
-
