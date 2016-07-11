@@ -1,0 +1,24 @@
+passenger_index:
+    path:     /
+    defaults: { _controller: "OnicFlightInventoryBundle:Passenger:index" }
+    methods:  GET
+
+passenger_show:
+    path:     /{id}/show
+    defaults: { _controller: "OnicFlightInventoryBundle:Passenger:show" }
+    methods:  GET
+
+passenger_new:
+    path:     /new
+    defaults: { _controller: "OnicFlightInventoryBundle:Passenger:new" }
+    methods:  [GET, POST]
+
+passenger_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OnicFlightInventoryBundle:Passenger:edit" }
+    methods:  [GET, POST]
+
+passenger_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OnicFlightInventoryBundle:Passenger:delete" }
+    methods:  DELETE

@@ -1,0 +1,21 @@
+{% extends 'panel.html.twig' %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="{{ path('location_index') }}">Location</a>
+        </li>
+        <li class="active">
+            <a href="{{ path('location_new') }}">Create a new Location</a>
+        </li>
+    </ol>
+{% endblock %}
+
+{% block panel_header %}New{% endblock %}
+
+{% block panel %}
+    {{ form(form) }}
+{% endblock %}

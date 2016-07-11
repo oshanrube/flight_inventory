@@ -1,0 +1,47 @@
+{% extends 'panel.html.twig' %}
+
+{% block panel_name %}Airlines{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="{{ path('airline_index') }}">Airline</a>
+        </li>
+        <li class="active">
+            <a href="{{ path('airline_new') }}">Create a new Airline</a>
+        </li>
+    </ol>
+{% endblock %}
+
+{% block panel %}
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="datatable-example">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th style="    width: 100px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for fiAirline in airlines %}
+            <tr class="odd gradeX">
+                <td>
+                    <a href="{{ path('airline_show', { 'id': fiAirline.id }) }}">{{ fiAirline.id }}</a>
+                </td>
+                <td>{{ fiAirline.name }}</td>
+                <td style="text-align: right">
+                    <a href="{{ path('airline_show', { 'id': fiAirline.id }) }}">
+                        <i class="glyph-icon tooltip-button  icon-pencil"></i>
+                    </a>
+                    <a href="{{ path('airline_edit', { 'id': fiAirline.id }) }}">
+                        <i class="glyph-icon tooltip-button icon-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

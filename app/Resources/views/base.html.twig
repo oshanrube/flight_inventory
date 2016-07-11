@@ -17,6 +17,7 @@
     <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-widget.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-mouse.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui-position.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js-core/jquery-ui.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js-core/transition.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js-core/modernizr.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js-core/jquery-cookie.js') }}"></script>
@@ -32,22 +33,15 @@
             left: 50%;
             margin: -50px 0 0 -50px;
         }
-
-        html, body {
-            height: 100%;
-            background: #fff;
-        }
     </style>
 </head>
 <body>
 <div id="loading">
     <div class="svg-icon-loader">
-        <img src="https://agileui.com/demo/delight/assets/images/svg-loaders/bars.svg" width="40" alt="">
+        <img src="{{ asset('assets/images/bars.svg') }}" width="40">
     </div>
 </div>
-<div class="center-vertical bg-black">
-    {% block body %}{% endblock %}
-</div>
+{% block body %}{% endblock %}
 
 {% block javascripts %}{% endblock %}
 <script type="text/javascript" src="{{ asset('assets/widgets/dropdown/dropdown.js') }}"></script>
@@ -74,5 +68,9 @@
 <script type="text/javascript" src="{{ asset('assets/widgets/jgrowl-notifications/jgrowl-demo.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/widgets/noty-notifications/noty.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/widgets/noty-notifications/noty-demo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/datepicker/datepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/datepicker-ui/datepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/widgets/datepicker-ui/datepicker-demo.js') }}"></script>
+
 </body>
 </html>

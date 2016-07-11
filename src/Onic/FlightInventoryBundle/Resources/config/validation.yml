@@ -1,0 +1,3 @@
+Onic\FlightInventoryBundle\Entity\FiFlight:
+    constraints:
+        - Onic\FlightInventoryBundle\Validator\Constraints\uniqueFlight: ~

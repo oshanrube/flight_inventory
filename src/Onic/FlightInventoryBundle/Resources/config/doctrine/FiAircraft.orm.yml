@@ -1,0 +1,42 @@
+Onic\FlightInventoryBundle\Entity\FiAircraft:
+    type: entity
+    table: fi_aircraft
+    indexes:
+        fk_idairline_id_idx:
+            columns:
+                - idairline
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        flightNumber:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: flight_number
+        seatsCount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: seats_count
+    manyToOne:
+        idairline:
+            targetEntity: FiAirline
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idairline:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -89,5 +89,20 @@
 @import url(../themes/components/border-radius.css);
 @import url(../helpers/responsive-elements.css);
 @import url(../helpers/admin-responsive.css);
+@import url(../widgets/owlcarousel/owlcarousel.css);
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px; }
+
+.breadcrumb > li {
+  display: inline-block; }
+
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0"; }
 
 /*# sourceMappingURL=styles.css.map */

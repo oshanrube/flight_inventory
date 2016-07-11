@@ -1,6 +1,5 @@
 app:
-    resource: "@OnicFlightInventoryBundle/Controller/"
-    type:     annotation
+    resource: "@OnicFlightInventoryBundle/Resources/config/routing.yml"
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 fos_user_group:

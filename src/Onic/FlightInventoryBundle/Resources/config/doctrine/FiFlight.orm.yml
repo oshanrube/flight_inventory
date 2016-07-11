@@ -1,0 +1,66 @@
+Onic\FlightInventoryBundle\Entity\FiFlight:
+    type: entity
+    table: fi_flight
+    indexes:
+        fk_idaircraft_id_idx:
+            columns:
+                - idaircraft
+        fk_flightidorigin_location_id_idx:
+            columns:
+                - idorigin
+        fk_flightiddestination_locationid_idx:
+            columns:
+                - iddestination
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        departure:
+            type: datetime
+            nullable: true
+        arrival:
+            type: datetime
+            nullable: true
+    manyToOne:
+        idaircraft:
+            targetEntity: FiAircraft
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idaircraft:
+                    referencedColumnName: id
+            orphanRemoval: false
+        iddestination:
+            targetEntity: FiLocation
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                iddestination:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idorigin:
+            targetEntity: FiLocation
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idorigin:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

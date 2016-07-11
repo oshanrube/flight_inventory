@@ -1,0 +1,26 @@
+{% extends 'panel.html.twig' %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="{{ path('passenger_index') }}">Passenger</a>
+        </li>
+        <li class="active">
+            <a href="{{ path('passenger_new') }}">Create a new Passenger</a>
+        </li>
+    </ol>
+{% endblock %}
+
+{% block panel_header %}Edit{% endblock %}
+
+{% block panel %}
+    {{ form(form) }}
+    <div class="bg-default content-box text-center pad20A mrg25T">
+        {{ form_start(delete_form) }}
+        <button class="btn btn-primary">Delete</button>
+        {{ form_end(delete_form) }}
+    </div>
+{% endblock %}

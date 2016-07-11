@@ -7,3 +7,14 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    onic_flight_inventory.flighttype:
+        class: Onic\FlightInventoryBundle\Form\FiFlightType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type }
+    onic_flight_inventory.uniqueFlightValidator:
+        class:  Onic\FlightInventoryBundle\Validator\Constraints\uniqueFlightValidator
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+        tags:
+            - { name: validator.constraint_validator }

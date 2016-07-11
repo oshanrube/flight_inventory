@@ -1,0 +1,41 @@
+Onic\FlightInventoryBundle\Entity\FiBooking:
+    type: entity
+    table: fi_booking
+    indexes:
+        fk_bookingidflight_idflight_idx:
+            columns:
+                - idflight
+        fk_bookingidpassanger_passangerId_idx:
+            columns:
+                - idpassenger
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idflight:
+            targetEntity: FiFlight
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idflight:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idpassenger:
+            targetEntity: FiPassenger
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idpassenger:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

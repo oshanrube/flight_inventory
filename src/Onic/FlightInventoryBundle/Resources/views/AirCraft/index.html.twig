@@ -1,0 +1,51 @@
+{% extends 'panel.html.twig' %}
+
+{% block panel_name %}Aircrafts{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="{{ path('aircraft_index') }}">Aircraft</a>
+        </li>
+        <li class="active">
+            <a href="{{ path('aircraft_new') }}">Create a new Aircraft</a>
+        </li>
+    </ol>
+{% endblock %}
+
+{% block panel %}
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="datatable-example">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Airline</th>
+            <th>Flight number</th>
+            <th>Seat count</th>
+            <th style="    width: 100px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for fiAircraft in aircrafts %}
+            <tr class="odd gradeX">
+                <td>
+                    <a href="{{ path('aircraft_show', { 'id': fiAircraft.id }) }}">{{ fiAircraft.id }}</a>
+                </td>
+                <td>{{ fiAircraft.idairline }}</td>
+                <td>{{ fiAircraft.flightNumber }}</td>
+                <td>{{ fiAircraft.seatsCount }}</td>
+                <td style="text-align: right">
+                    <a href="{{ path('aircraft_show', { 'id': fiAircraft.id }) }}">
+                        <i class="glyph-icon tooltip-button  icon-newspaper-o"></i>
+                    </a>
+                    <a href="{{ path('aircraft_edit', { 'id': fiAircraft.id }) }}">
+                        <i class="glyph-icon tooltip-button icon-pencil"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

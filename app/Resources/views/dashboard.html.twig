@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="sb-site">
+        <div id="page-wrapper">
+            <div id="page-sidebar">
+                <div id="header-logo" class="logo-bg">
+                    <a href="index.html" class="logo-content-big" title="Flight Inventory">
+                        Flight Inventory
+                        <span>Fastest way to get on the air</span>
+                    </a>
+                    <a href="index.html" class="logo-content-small" title="DelightUI">
+                        Flight Inventory
+                        <span>Fastest way to get on the air</span>
+                    </a>
+                    <a id="close-sidebar" href="#" title="Close sidebar"><i class="glyph-icon icon-outdent"></i></a>
+                </div>
+                <div class="scroll-sidebar">
+                    <ul id="sidebar-menu">
+                        <li class="header">
+                            <span>Overview</span>
+                        </li>
+                        <li>
+                            <a href="{{ path('onic_flight_inventory_homepage') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Admin dashboard</span>
+                            </a>
+                        </li>
+                        <li class="header"><span>Data</span></li>
+                        <li>
+                            <a href="{{ path('airline_index') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Airlines</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('aircraft_index') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Aircraft</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('flight_index') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Flights</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('passenger_index') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Passenger</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('booking_index') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Bookings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('location_index') }}" title="Admin Dashboard">
+                                <i class="glyph-icon icon-linecons-tv"></i>
+                                <span>Locations</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div id="page-content-wrapper">
+                <div id="page-content">
+                    {% block dashboard %}
+                    {% endblock %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

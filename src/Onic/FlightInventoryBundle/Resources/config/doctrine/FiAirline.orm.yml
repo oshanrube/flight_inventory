@@ -1,0 +1,20 @@
+Onic\FlightInventoryBundle\Entity\FiAirline:
+    type: entity
+    table: fi_airline
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

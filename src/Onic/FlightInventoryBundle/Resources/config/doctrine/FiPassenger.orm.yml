@@ -1,0 +1,36 @@
+Onic\FlightInventoryBundle\Entity\FiPassenger:
+    type: entity
+    table: fi_passenger
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        passportNumber:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: passport_number
+        dob:
+            type: date
+            nullable: true
+    lifecycleCallbacks: {  }

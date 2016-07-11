@@ -1,0 +1,44 @@
+Onic\FlightInventoryBundle\Entity\FiLocation:
+    type: entity
+    table: fi_location
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        city:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        country:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        iata:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        icao:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

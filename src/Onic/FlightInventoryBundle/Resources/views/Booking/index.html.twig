@@ -1,0 +1,49 @@
+{% extends 'panel.html.twig' %}
+
+{% block panel_name %}Bookings{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="{{ path('booking_index') }}">Booking</a>
+        </li>
+        <li class="active">
+            <a href="{{ path('booking_new') }}">Create a new Booking</a>
+        </li>
+    </ol>
+{% endblock %}
+
+{% block panel %}
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="datatable-example">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Flight</th>
+            <th>Passenger</th>
+            <th style="    width: 100px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for fiBooking in bookings %}
+            <tr class="odd gradeX">
+                <td>
+                    <a href="{{ path('booking_show', { 'id': fiBooking.id }) }}">{{ fiBooking.id }}</a>
+                </td>
+                <td>{{ fiBooking.idflight }}</td>
+                <td>{{ fiBooking.idpassenger }}</td>
+                <td style="text-align: right">
+                    <a href="{{ path('booking_show', { 'id': fiBooking.id }) }}">
+                        <i class="glyph-icon tooltip-button  icon-pencil"></i>
+                    </a>
+                    <a href="{{ path('booking_edit', { 'id': fiBooking.id }) }}">
+                        <i class="glyph-icon tooltip-button icon-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

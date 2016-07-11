@@ -1,0 +1,24 @@
+airline_index:
+    path:     /
+    defaults: { _controller: "OnicFlightInventoryBundle:Airline:index" }
+    methods:  GET
+
+airline_show:
+    path:     /{id}/show
+    defaults: { _controller: "OnicFlightInventoryBundle:Airline:show" }
+    methods:  GET
+
+airline_new:
+    path:     /new
+    defaults: { _controller: "OnicFlightInventoryBundle:Airline:new" }
+    methods:  [GET, POST]
+
+airline_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OnicFlightInventoryBundle:Airline:edit" }
+    methods:  [GET, POST]
+
+airline_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OnicFlightInventoryBundle:Airline:delete" }
+    methods:  DELETE
