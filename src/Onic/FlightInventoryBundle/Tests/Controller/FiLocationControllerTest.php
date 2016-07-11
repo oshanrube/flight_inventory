@@ -14,39 +14,41 @@ class FiLocationControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/location/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /location/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Create a new Location')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'onic_flightinventorybundle_filocation[field_name]'  => 'Test',
-            // ... other fields to fill
+            'fi_location[name]'    => 'location',
+            'fi_location[city]'    => 'city',
+            'fi_location[country]' => 'country',
+            'fi_location[iata]'    => 'ABCD',
+            'fi_location[icao]'    => 'ICAO',
         ));
 
         $client->submit($form);
         $crawler = $client->followRedirect();
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("location")')->count(), 'Missing element td:contains("location")');
 
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'onic_flightinventorybundle_filocation[field_name]'  => 'Foo',
-            // ... other fields to fill
+            'fi_location[name]' => 'newlocation',
         ));
 
         $client->submit($form);
         $crawler = $client->followRedirect();
 
         // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
+        $this->assertGreaterThan(0, $crawler->filter('[value="newlocation"]')->count(), 'Missing element [value="newlocation"]');
 
         // Delete the entity
         $client->submit($crawler->selectButton('Delete')->form());
         $crawler = $client->followRedirect();
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp('/newlocation/', $client->getResponse()->getContent());
     }
 }

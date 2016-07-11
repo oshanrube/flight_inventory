@@ -23,4 +23,4 @@ TODO
 * add autocomplete like in locations to airplanes and other dropdowns
 * update the error messages
 * add ajax responses for the page loading
-
+* add tests for data type test

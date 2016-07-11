@@ -12,41 +12,25 @@ class FiFrontendControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/frontend/');
+        $crawler = $client->request('GET', '/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /frontend/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
-
         // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
-            'onic_flightinventorybundle_fifrontend[field_name]' => 'Test',
-            // ... other fields to fill
+        $form = $crawler->selectButton('Filter')->form(array(
+            'fi_flight_filter[idorigin]' => '1',
+            'fi_flight_filter[iddestination]' => '1',
+            'fi_flight_filter[departure]' => '2016-07-01',
+            'fi_flight_filter[arrival]' => '2016-07-02',
+            'fi_flight_filter[num_passengers]' => '1',
         ));
 
         $client->submit($form);
         $crawler = $client->followRedirect();
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("Filtered booking")')->count(), 'Missing element td:contains("Filtered booking")');
 
-        // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
-
-        $form = $crawler->selectButton('Update')->form(array(
-            'onic_flightinventorybundle_fifrontend[field_name]' => 'Foo',
-            // ... other fields to fill
-        ));
-
-        $client->submit($form);
-        $crawler = $client->followRedirect();
-
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
-
-        // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
-
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        //click on the link
+        //make a booking
+        //check bookings with seat numbers are full
     }
 }

@@ -14,11 +14,11 @@ class FiAirlineControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/airline/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /airline/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Create a new Airline')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'onic_flightinventorybundle_fiairline[field_name]'  => 'Test',
+            'fi_airline[name]'  => 'TestAirline',
             // ... other fields to fill
         ));
 
@@ -26,27 +26,26 @@ class FiAirlineControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("TestAirline")')->count(), 'Missing element td:contains("TestAirline")');
 
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'onic_flightinventorybundle_fiairline[field_name]'  => 'Foo',
-            // ... other fields to fill
+            'fi_airline[name]'  => 'TestAirline2',
         ));
 
         $client->submit($form);
         $crawler = $client->followRedirect();
 
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
+        // Check the element contains an attribute with value equals "TestAirline2"
+        $this->assertGreaterThan(0, $crawler->filter('[value="TestAirline2"]')->count(), 'Missing element [value="TestAirline2"]');
 
         // Delete the entity
         $client->submit($crawler->selectButton('Delete')->form());
         $crawler = $client->followRedirect();
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp('/TestAirline2/', $client->getResponse()->getContent());
     }
 }
