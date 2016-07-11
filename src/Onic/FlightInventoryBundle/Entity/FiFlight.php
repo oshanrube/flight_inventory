@@ -183,4 +183,66 @@ class FiFlight
     {
         return $this->idorigin;
     }
+
+    public function getAvailableSeats()
+    {
+        $seats = $this->getIdaircraft()->getSeatsCount();
+        //get bookings
+        //remove the seating
+        $seats -= $this->getBookings()->count();
+        return $seats;
+    }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $Bookings;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Bookings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add booking
+     * @param \Onic\FlightInventoryBundle\Entity\FiBooking $booking
+     * @return FiFlight
+     */
+    public function addBooking(\Onic\FlightInventoryBundle\Entity\FiBooking $booking)
+    {
+        $this->Bookings[] = $booking;
+
+        return $this;
+    }
+
+    /**
+     * Remove booking
+     * @param \Onic\FlightInventoryBundle\Entity\FiBooking $booking
+     */
+    public function removeBooking(\Onic\FlightInventoryBundle\Entity\FiBooking $booking)
+    {
+        $this->Bookings->removeElement($booking);
+    }
+
+    /**
+     * Get bookings
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBookings()
+    {
+        return $this->Bookings;
+    }
+
+    /**
+     * Get duration
+     * @return string
+     */
+    public function getDuration()
+    {
+        $diff = $this->getDeparture()->diff($this->getArrival());
+        return sprintf('%d days, %d hours, %d minutes', $diff->d, $diff->h, $diff->i);
+    }
 }

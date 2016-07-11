@@ -27,6 +27,7 @@
             <th>Arrival</th>
             <th>Origin</th>
             <th>Destination</th>
+            <th>Duration</th>
             <th style="    width: 100px;">Actions</th>
         </tr>
         </thead>
@@ -42,6 +43,7 @@
                 <td>{{ fiFlight.arrival|date("Y-m-d H:i:s") }}</td>
                 <td>{{ fiFlight.idorigin }}</td>
                 <td>{{ fiFlight.iddestination }}</td>
+                <td>{{ fiFlight.duration }}</td>
                 <td style="text-align: right">
                     <a href="{{ path('flight_show', { 'id': fiFlight.id }) }}">
                         <i class="glyph-icon tooltip-button  icon-newspaper-o"></i>

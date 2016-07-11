@@ -1,0 +1,9 @@
+flight_booking:
+    path:     /booking/{id}
+    defaults: { _controller: "OnicFlightInventoryBundle:Frontend:booking" }
+    methods:  [GET, POST]
+
+flight_booking_view:
+    path:     /booking_details/{id}
+    defaults: { _controller: "OnicFlightInventoryBundle:Frontend:bookingDetails" }
+    methods:  GET

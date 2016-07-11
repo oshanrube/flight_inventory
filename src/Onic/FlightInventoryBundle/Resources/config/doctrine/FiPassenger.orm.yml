@@ -33,4 +33,17 @@ Onic\FlightInventoryBundle\Entity\FiPassenger:
         dob:
             type: date
             nullable: true
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        paymentMethod:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: payment_method
     lifecycleCallbacks: {  }

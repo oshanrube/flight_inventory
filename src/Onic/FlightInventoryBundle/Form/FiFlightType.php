@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -28,7 +29,7 @@ class FiFlightType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('price')
+            ->add('price', MoneyType::class)
             ->add('departure', DateTimeType::class, array('date_widget' => 'single_text', 'html5' => false, 'attr' => array('class' => 'has_datepicker col-md-6')))
             ->add('arrival', DateTimeType::class, array('date_widget' => 'single_text', 'html5' => false, 'attr' => array('class' => 'has_datepicker col-md-6')))
             ->add('idorigin', TextType::class, array('label' => 'Origin', 'attr' => array('class' => 'autocomplete', 'data-autocomplete-url' => 'location_autocomplete')))

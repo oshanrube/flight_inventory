@@ -1,6 +1,7 @@
 Onic\FlightInventoryBundle\Entity\FiFlight:
     type: entity
     table: fi_flight
+    repositoryClass: Onic\FlightInventoryBundle\Entity\FiFlightRepository
     indexes:
         fk_idaircraft_id_idx:
             columns:
@@ -32,6 +33,10 @@ Onic\FlightInventoryBundle\Entity\FiFlight:
         arrival:
             type: datetime
             nullable: true
+    oneToMany:
+        Bookings:
+          targetEntity: FiBooking
+          mappedBy: idflight
     manyToOne:
         idaircraft:
             targetEntity: FiAircraft

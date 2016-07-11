@@ -12,6 +12,11 @@ services:
         arguments: ["@doctrine.orm.entity_manager"]
         tags:
             - { name: form.type }
+    onic_flight_inventory.flightfiltertype:
+        class: Onic\FlightInventoryBundle\Form\FiFlightFilterType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type }
     onic_flight_inventory.uniqueFlightValidator:
         class:  Onic\FlightInventoryBundle\Validator\Constraints\uniqueFlightValidator
         arguments:

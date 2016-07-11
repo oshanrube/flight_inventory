@@ -20,7 +20,7 @@ class FiBookingType extends AbstractType
             ->add('idflight', null, array('label' => 'Flight'))
             ->add('idpassenger', null, array('label' => 'Passenger'))
             ->add('save', SubmitType::class, array(
-                'attr' => array('back-url' => 'flight_index', 'class' => 'btn btn-primary'),
+                'attr' => array('back-url' => 'onic_flight_inventory_homepage', 'class' => 'btn btn-primary'),
             ));
     }
 

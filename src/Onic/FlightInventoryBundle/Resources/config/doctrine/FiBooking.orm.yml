@@ -23,7 +23,7 @@ Onic\FlightInventoryBundle\Entity\FiBooking:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: Bookings
             joinColumns:
                 idflight:
                     referencedColumnName: id

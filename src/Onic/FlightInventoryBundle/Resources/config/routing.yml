@@ -1,27 +1,16 @@
-onic_flight_inventory_airline:
-    resource: "@OnicFlightInventoryBundle/Resources/config/routing/fiairline.yml"
-    prefix:   /airline
+onic_flight_inventory_admin:
+    resource: "@OnicFlightInventoryBundle/Resources/config/routing/admin_routing.yml"
+    prefix:   /admin
 
-onic_flight_inventory_aircraft:
-    resource: "@OnicFlightInventoryBundle/Resources/config/routing/fiaircraft.yml"
-    prefix:   /aircraft
+onic_flight_inventory_frontend:
+    resource: "@OnicFlightInventoryBundle/Resources/config/routing/frontend_routing.yml"
+    prefix:   /
 
-onic_flight_inventory_flight:
-    resource: "@OnicFlightInventoryBundle/Resources/config/routing/fiflight.yml"
-    prefix:   /flight
-
-onic_flight_inventory_passenger:
-    resource: "@OnicFlightInventoryBundle/Resources/config/routing/fipassenger.yml"
-    prefix:   /passenger
-
-onic_flight_inventory_booking:
-    resource: "@OnicFlightInventoryBundle/Resources/config/routing/fibooking.yml"
-    prefix:   /booking
-
-onic_flight_inventory_location:
-    resource: "@OnicFlightInventoryBundle/Resources/config/routing/filocation.yml"
-    prefix:   /location
+location_autocomplete:
+    path:     /autocomplete
+    defaults: { _controller: "OnicFlightInventoryBundle:Location:autocomplete" }
+    methods:  GET
 
 onic_flight_inventory_homepage:
     path:     /
-    defaults: { _controller: OnicFlightInventoryBundle:Default:index }
+    defaults: { _controller: OnicFlightInventoryBundle:Frontend:index }

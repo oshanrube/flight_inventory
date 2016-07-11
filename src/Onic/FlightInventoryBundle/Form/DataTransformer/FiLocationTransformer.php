@@ -14,14 +14,14 @@ class FiLocationTransformer implements DataTransformerInterface
         $this->entityManager = $entityManager;
     }
 
-    public function transform($city)
+    public function transform($filocation)
     {
-        if (null === $city)
+        if (null === $filocation)
         {
             return '';
         }
 
-        return $city->getName();
+        return $filocation->getName();
     }
 
     public function reverseTransform($idlocation)

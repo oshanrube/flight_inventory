@@ -227,7 +227,9 @@
 
 {%- block submit_widget -%}
     <div class="bg-default content-box text-center pad20A mrg25T">
-        <a href="{{ path(attr['back-url']) }}" class="btn btn-border btn-alt border-default font-default">back</a>
+        {%- if attr['back-url'] is defined -%}
+            <a href="{{ path(attr['back-url']) }}" class="btn btn-border btn-alt border-default font-default">back</a>
+        {%- endif -%}
         {%- set type = type|default('submit') -%}
         {{ block('button_widget') }}
     </div>

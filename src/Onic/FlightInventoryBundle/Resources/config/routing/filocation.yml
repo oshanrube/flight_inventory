@@ -3,11 +3,6 @@ location_index:
     defaults: { _controller: "OnicFlightInventoryBundle:Location:index" }
     methods:  GET
 
-location_autocomplete:
-    path:     /autocomplete
-    defaults: { _controller: "OnicFlightInventoryBundle:Location:autocomplete" }
-    methods:  GET
-
 location_show:
     path:     /{id}/show
     defaults: { _controller: "OnicFlightInventoryBundle:Location:show" }

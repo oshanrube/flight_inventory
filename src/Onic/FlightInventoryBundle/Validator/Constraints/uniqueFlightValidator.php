@@ -43,9 +43,12 @@ class uniqueFlightValidator extends ConstraintValidator
         {
             //this flight cannot conflict with other trips of the same flight, in reality there should be timegaps for maintainance, loading and uploading as well
             if (
-                ($value->getDeparture() < $aircraft->getArrival() && $value->getDeparture() < $aircraft->getDeparture())
-                ||
-                ($value->getArrival() < $aircraft->getArrival() && $value->getArrival() < $aircraft->getDeparture())
+                $value->getId() != $aircraft->getId() &&
+                (
+                    ($value->getDeparture() < $aircraft->getArrival() && $value->getDeparture() > $aircraft->getDeparture())
+                    ||
+                    ($value->getArrival() < $aircraft->getArrival() && $value->getArrival() > $aircraft->getDeparture())
+                )
             )
             {
                 $this->context->buildViolation($constraint->message)
